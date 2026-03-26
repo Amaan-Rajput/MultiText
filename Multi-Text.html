@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Text</title>
+    <!--aladin-font-link-->
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
+    <!-- Roboto Condensed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background-image: url("./Wallpaper.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        header h2 {
+            font-size: 36px;
+            font-family: 'Aladin', cursive;
+            margin-bottom: 40px;
+        }
+
+        main {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 90%;
+            max-width: 660px;
+        }
+
+        main input,
+        main textarea {
+            position: relative;
+            display: flex;
+            width: 90%;
+            font-size: 18px;
+            font-family: "Roboto Condensed", sans-serif;
+            background: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #bebebe;
+            margin-block-end: 12px;
+            color: #fff;
+            border-radius: 10px;
+            padding-inline: 10px;
+        }
+
+        main input::placeholder,
+        main textarea::placeholder {
+            color: #ddd;
+        }
+
+        main textarea {
+            border: 1px solid #bebebe;
+            border-top: none;
+            resize: vertical;
+        }
+
+        main textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        main textarea::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        main textarea::-webkit-scrollbar-thumb {
+            background: #bebebe;
+            border-radius: 10px;
+        }
+
+        .btn,
+        .btn *,
+        .btn :after,
+        .btn :before,
+        .btn:after,
+        .btn:before {
+            border: 0 solid;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-appearance: button;
+            background-color: #000;
+            background-image: none;
+            color: #fff;
+            cursor: pointer;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+                Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            font-size: 80%;
+            font-weight: 900;
+            line-height: 1.2;
+            margin: 0;
+            -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+            padding: 0;
+            text-transform: uppercase;
+        }
+
+        .btn:disabled {
+            cursor: default;
+        }
+
+        .btn:-moz-focusring {
+            outline: auto;
+        }
+
+        .btn svg {
+            display: block;
+            vertical-align: middle;
+        }
+
+        .btn [hidden] {
+            display: none;
+        }
+
+        .btn {
+            border-radius: 99rem;
+            border-width: 2px;
+            padding: 0.8rem 3rem;
+            z-index: 0;
+        }
+
+        .btn,
+        .btn .text-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .btn .text-container {
+            display: block;
+            mix-blend-mode: difference;
+        }
+
+        .btn .text {
+            display: block;
+            position: relative;
+        }
+
+        .btn:hover .text {
+            -webkit-animation: move-up-alternate 0.3s forwards;
+            animation: move-up-alternate 0.3s forwards;
+        }
+
+        @-webkit-keyframes move-up-alternate {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(80%);
+            }
+
+            51% {
+                transform: translateY(-80%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes move-up-alternate {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(80%);
+            }
+
+            51% {
+                transform: translateY(-80%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .btn:after,
+        .btn:before {
+            --skew: 0.2;
+            background: #fff;
+            content: "";
+            display: block;
+            height: 102%;
+            left: calc(-50% - 50% * var(--skew));
+            pointer-events: none;
+            position: absolute;
+            top: -104%;
+            transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
+            transition: transform 0.2s ease;
+            width: 100%;
+        }
+
+        .btn:after {
+            --progress: 0%;
+            left: calc(50% + 50% * var(--skew));
+            top: 102%;
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            --progress: 100%;
+        }
+
+        .btn:hover:after {
+            --progress: -102%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <H2>Multi Text</H2>
+    </header>
+    <main>
+        <input type="text" name="" id="text" placeholder="Type Your Text" required autocomplete="off">
+        <input type="number" name="" id="number" placeholder="Type Your Numbers" required>
+        <button class="btn" id="button" type="submit">
+            <span class="text-container">
+                <span class="text">Submit</span>
+            </span>
+        </button>
+        <textarea name="" id="textarea" rows="8" placeholder="Result"></textarea>
+    </main>
+    <span style="position: absolute; left: 0; bottom: 0; pointer-events: none; user-select: none;">Copyright 2026
+        <strong style="letter-spacing: 1.5px;font-family: 'Aladin', cursive;">Code-with-amaan</strong></span>
+
+    <script type="module">
+        const text = document.querySelector("#text")
+        const number = document.querySelector("#number")
+        const Submit = document.querySelector("#button")
+        const textarea = document.querySelector("#textarea")
+
+        let inputText, inputNumber, Result;
+
+        Submit.addEventListener("click", () => {
+            textarea.innerHTML = '';
+            for (let i = 0; i < number.value; i++) {
+                Result = `${i + 1}: ${text.value}`
+                textarea.innerHTML += `${Result}\n`;
+            }
+        })
+    </script>
+</body>
+
+</html>
